@@ -5,52 +5,47 @@ import ReactDOM from 'react-dom';
 import client from './client';
 
 class App extends React.Component {
-
 	constructor(props) {
 		super(props);
-		this.state = {employees: []};
+		this.state = {thoughts: []};
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/employees'}).done(response => {
-			this.setState({employees: response.entity._embedded.employees});
+		client({method: 'GET', path: '/api/thoughts'}).done(response => {
+			this.setState({thoughts: response.entity._embedded.thoughts});
 		});
 	}
 
 	render() {
 		return (
-			<EmployeeList employees={this.state.employees}/>
+			<ThoughtList thoughts={this.state.thoughts}/>
 		)
 	}
 }
 
-class EmployeeList extends React.Component{
+class ThoughtList extends React.Component{
 	render() {
-		var employees = this.props.employees.map(employee =>
-			<Employee key={employee._links.self.href} employee={employee}/>
+		var thoughts = this.props.thoughts.map(thought =>
+			<Thought key={thought._links.self.href} thought={thought}/>
 		);
 		return (
 			<table>
 				<tbody>
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Description</th>
+						<th>Text</th>
 					</tr>
-					{employees}
+					{thoughts}
 				</tbody>
 			</table>
 		)
 	}
 }
 
-class Employee extends React.Component{
+class Thought extends React.Component{
 	render() {
 		return (
 			<tr>
-				<td>{this.props.employee.firstName}</td>
-				<td>{this.props.employee.lastName}</td>
-				<td>{this.props.employee.description}</td>
+				<td>{this.props.thought.text}</td>
 			</tr>
 		)
 	}
@@ -59,4 +54,4 @@ class Employee extends React.Component{
 ReactDOM.render(
 	<App />,
 	document.getElementById('react')
-)
+);
