@@ -27,7 +27,7 @@ bootRun {
 }
 
 jar {
-    baseName = 'Thoughts'
+    baseName = 'thoughts'
     version = '0.0.1-SNAPSHOT'
 }
 
