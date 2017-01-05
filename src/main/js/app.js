@@ -33,6 +33,7 @@ class ThoughtList extends React.Component{
 				<tbody>
 					<tr>
 						<th>Text</th>
+						<th>Timestamp</th>
 					</tr>
 					{thoughts}
 				</tbody>
@@ -46,6 +47,7 @@ class Thought extends React.Component{
 		return (
 			<tr>
 				<td>{this.props.thought.text}</td>
+				<td>{this.props.thought.creationTime}</td>
 			</tr>
 		)
 	}
