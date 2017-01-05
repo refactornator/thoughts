@@ -1,0 +1,22 @@
+exports[`test ThoughtList renders correctly 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <th>
+        Text
+      </th>
+      <th>
+        Timestamp
+      </th>
+    </tr>
+    <tr>
+      <td>
+        This is a thought.
+      </td>
+      <td>
+        2017-01-05T20:19:27.927+0000
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
