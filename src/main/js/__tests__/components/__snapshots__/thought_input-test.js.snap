@@ -1,4 +1,4 @@
-exports[`test ThoughtInput renders correctly 1`] = `
+exports[`ThoughtInput renders a textarea and button for remembering a thought 1`] = `
 <div>
   <textarea
     onChange={[Function]}

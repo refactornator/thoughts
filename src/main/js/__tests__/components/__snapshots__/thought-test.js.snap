@@ -1,4 +1,4 @@
-exports[`test Thought renders correctly 1`] = `
+exports[`Thought renders a single thought 1`] = `
 <tr>
   <td>
     This is a thought.

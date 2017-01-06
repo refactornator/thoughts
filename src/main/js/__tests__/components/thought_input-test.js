@@ -2,10 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ThoughtInput from '../../components/thought_input';
 
-test('ThoughtInput renders correctly', () => {
-    const tree = renderer.create(
-        <ThoughtInput></ThoughtInput>
-    ).toJSON();
+describe('ThoughtInput', () => {
+    it('renders a textarea and button for remembering a thought', () => {
+        const tree = renderer.create(
+            <ThoughtInput></ThoughtInput>
+        ).toJSON();
 
-    expect(tree).toMatchSnapshot();
+        expect(tree).toMatchSnapshot();
+    });
 });

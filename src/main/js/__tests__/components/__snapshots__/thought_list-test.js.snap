@@ -1,4 +1,4 @@
-exports[`test ThoughtList renders correctly 1`] = `
+exports[`ThoughtList renders a list of thoughts correctly 1`] = `
 <table>
   <tbody>
     <tr>
