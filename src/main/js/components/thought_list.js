@@ -4,8 +4,8 @@ import Thought from './thought';
 
 export default class ThoughtList extends React.Component {
     render() {
-        var thoughts = this.props.thoughts.map(thought =>
-            <Thought key={thought._links.self.href} thought={thought}/>
+        var thoughts = this.props.thoughts.map((thought, index) =>
+            <Thought key={index} thought={thought}/>
         );
         return (
             <table>

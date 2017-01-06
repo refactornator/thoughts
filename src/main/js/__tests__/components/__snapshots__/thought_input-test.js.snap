@@ -1,0 +1,11 @@
+exports[`test ThoughtInput renders correctly 1`] = `
+<div>
+  <textarea
+    onChange={[Function]}
+    value="" />
+  <button
+    onClick={[Function]}>
+    Remember
+  </button>
+</div>
+`;
