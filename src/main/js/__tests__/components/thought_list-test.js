@@ -15,7 +15,7 @@ describe('ThoughtList', () => {
         }];
 
         const tree = renderer.create(
-            <ThoughtList thoughts={thoughts}></ThoughtList>
+            <ThoughtList thoughts={thoughts} deleteThoughtHandler={() => {}} />
         ).toJSON();
 
         expect(tree).toMatchSnapshot();

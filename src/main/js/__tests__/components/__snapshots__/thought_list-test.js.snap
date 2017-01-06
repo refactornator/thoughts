@@ -8,6 +8,9 @@ exports[`ThoughtList renders a list of thoughts correctly 1`] = `
       <th>
         Timestamp
       </th>
+      <th>
+        Delete
+      </th>
     </tr>
     <tr>
       <td>
@@ -15,6 +18,12 @@ exports[`ThoughtList renders a list of thoughts correctly 1`] = `
       </td>
       <td>
         2017-01-05T20:19:27.927+0000
+      </td>
+      <td>
+        <a
+          onClick={[Function]}>
+          x
+        </a>
       </td>
     </tr>
   </tbody>

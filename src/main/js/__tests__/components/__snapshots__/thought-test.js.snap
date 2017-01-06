@@ -6,5 +6,11 @@ exports[`Thought renders a single thought 1`] = `
   <td>
     2017-01-05T20:19:27.927+0000
   </td>
+  <td>
+    <a
+      onClick={[Function]}>
+      x
+    </a>
+  </td>
 </tr>
 `;
