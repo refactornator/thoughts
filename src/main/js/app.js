@@ -11,8 +11,8 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/thoughts'}).then(response => {
-			this.setState({thoughts: response.entity._embedded.thoughts});
+		client.fetch('thoughts').then(thoughts => {
+			this.setState({thoughts});
 		});
 	}
 
@@ -23,7 +23,4 @@ class App extends React.Component {
 	}
 }
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('react')
-);
+ReactDOM.render(<App />, document.getElementById('react'));
