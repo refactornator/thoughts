@@ -15,16 +15,9 @@ export default class ThoughtList extends React.Component {
             );
         });
         return (
-            <table>
-                <tbody>
-                <tr>
-                    <th>Text</th>
-                    <th>Timestamp</th>
-                    <th>Delete</th>
-                </tr>
+            <div>
                 {thoughts}
-                </tbody>
-            </table>
+            </div>
         )
     }
 }

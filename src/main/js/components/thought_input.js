@@ -30,7 +30,7 @@ export default class ThoughtInput extends React.Component {
             <Card>
                 <CardText>
                     <textarea value={this.state.thoughtText} onChange={this.handleThoughtChange}/>
-                    <div style={{'text-align': 'right'}}>
+                    <div style={{textAlign: 'right'}}>
                         <RaisedButton className="remember-button" primary={true} label="Remember"
                                       onClick={this.handleNewThought.bind(this)}/>
                     </div>
