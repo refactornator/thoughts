@@ -7,3 +7,16 @@ td, th {
     padding: 0.5rem;
     text-align: left;
 }
+
+textarea {
+    width: 99%;
+    height: 60px;
+    resize: none;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    border-color: #00B0FF;
+}
+
+.remember-button {
+    margin-left: auto;
+}

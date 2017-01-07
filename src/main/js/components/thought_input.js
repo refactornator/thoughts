@@ -1,4 +1,6 @@
 import React from 'react';
+import {Card, CardText} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class ThoughtInput extends React.Component {
     constructor(props) {
@@ -25,10 +27,15 @@ export default class ThoughtInput extends React.Component {
 
     render() {
         return (
-            <div>
-                <textarea value={this.state.thoughtText} onChange={this.handleThoughtChange} />
-                <button onClick={this.handleNewThought.bind(this)}>Remember</button>
-            </div>
+            <Card>
+                <CardText>
+                    <textarea value={this.state.thoughtText} onChange={this.handleThoughtChange}/>
+                    <div style={{'text-align': 'right'}}>
+                        <RaisedButton className="remember-button" primary={true} label="Remember"
+                                      onClick={this.handleNewThought.bind(this)}/>
+                    </div>
+                </CardText>
+            </Card>
         )
     }
 }
