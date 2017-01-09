@@ -26,7 +26,8 @@
     "react-dom": "15.4.2",
     "react-tap-event-plugin": "2.0.1",
     "rest": "2.0.0",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "whatwg-fetch": "2.0.1"
   },
   "scripts": {
     "test": "jest",

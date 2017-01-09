@@ -17,6 +17,14 @@ textarea {
     border-color: #00B0FF;
 }
 
+#app {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .remember-button {
     margin-left: auto;
 }

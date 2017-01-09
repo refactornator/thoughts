@@ -1,11 +1,25 @@
+import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {deepOrange500} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import client from './client';
 
 import ThoughtInput from './components/thought_input';
 import ThoughtList from './components/thought_list';
+
+const styles = {
+  container: {
+  },
+};
+
+const muiTheme = getMuiTheme({
+  palette: {
+    accent1Color: deepOrange500,
+  },
+});
 
 export default class App extends React.Component {
     constructor(props) {
@@ -45,8 +59,8 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <MuiThemeProvider>
-                <div>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <div style={styles.container}>
                     <ThoughtInput newThoughtHandler={this.rememberThought.bind(this)}/>
                     <ThoughtList thoughts={this.state.thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>
                 </div>
