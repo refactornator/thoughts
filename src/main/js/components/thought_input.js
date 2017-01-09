@@ -25,6 +25,7 @@ export default class ThoughtInput extends React.Component {
         this.setState({
             thoughtText: ''
         });
+        localStorage.setItem('thought', '');
     }
 
     render() {
