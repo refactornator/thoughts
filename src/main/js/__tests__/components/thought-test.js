@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Thought from '../../components/thought';
 
 describe('Thought', () => {
@@ -11,13 +12,15 @@ describe('Thought', () => {
 
     it('renders a single thought', () => {
         const thoughtEl = renderer.create(
-            <Thought thought={thought} deleteThoughtHandler={() => {}} />
+            <MuiThemeProvider>
+                <Thought thought={thought} deleteThoughtHandler={() => {}} />
+            </MuiThemeProvider>
         ).toJSON();
 
         expect(thoughtEl).toMatchSnapshot();
     });
 
-    it('CheckboxWithLabel changes the text after click', () => {
+    it('calls the delete handler when the delete button is clicked', () => {
         let deleteHandlerMock = jest.fn();
         const thoughtEl = shallow(
             <Thought
@@ -26,7 +29,7 @@ describe('Thought', () => {
             />
         );
 
-        thoughtEl.find('a').simulate('click');
+        thoughtEl.find('ActionDelete').simulate('click');
 
         expect(deleteHandlerMock).toBeCalledWith('/api/stuff/1');
     });

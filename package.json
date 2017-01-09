@@ -21,6 +21,7 @@
   "homepage": "https://github.com/wlindner/thoughts",
   "dependencies": {
     "material-ui": "0.16.6",
+    "moment": "2.17.1",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-tap-event-plugin": "2.0.1",

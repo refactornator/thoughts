@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ThoughtList from '../../components/thought_list';
 
 describe('ThoughtList', () => {
@@ -15,7 +16,9 @@ describe('ThoughtList', () => {
         }];
 
         const tree = renderer.create(
-            <ThoughtList thoughts={thoughts} deleteThoughtHandler={() => {}} />
+            <MuiThemeProvider>
+                <ThoughtList thoughts={thoughts} deleteThoughtHandler={() => {}} />
+            </MuiThemeProvider>
         ).toJSON();
 
         expect(tree).toMatchSnapshot();

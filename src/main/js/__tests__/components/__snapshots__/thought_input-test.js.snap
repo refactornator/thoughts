@@ -36,7 +36,7 @@ exports[`ThoughtInput renders a textarea and button for remembering a thought 1`
       <div
         style={
           Object {
-            "text-align": "right",
+            "textAlign": "right",
           }
         }>
         <div
