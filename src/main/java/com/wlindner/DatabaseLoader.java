@@ -15,7 +15,5 @@ public class DatabaseLoader implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... strings) throws Exception {
-		this.repository.save(new Thought("Indiana Jones is the American James Bond."));
-	}
+	public void run(String... strings) throws Exception { }
 }
