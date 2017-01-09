@@ -10,11 +10,6 @@ import client from './client';
 import ThoughtInput from './components/thought_input';
 import ThoughtList from './components/thought_list';
 
-const styles = {
-  container: {
-  },
-};
-
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
@@ -60,7 +55,7 @@ export default class App extends React.Component {
     render() {
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
-                <div style={styles.container}>
+                <div className="container">
                     <ThoughtInput newThoughtHandler={this.rememberThought.bind(this)}/>
                     <ThoughtList thoughts={this.state.thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>
                 </div>

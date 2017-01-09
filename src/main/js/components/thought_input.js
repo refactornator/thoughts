@@ -7,7 +7,7 @@ export default class ThoughtInput extends React.Component {
         super(props);
 
         this.state = {
-            thoughtText: ''
+            thoughtText: localStorage.getItem('thought') || ''
         };
 
         this.handleNewThought = this.handleNewThought.bind(this);
@@ -15,7 +15,9 @@ export default class ThoughtInput extends React.Component {
     }
 
     handleThoughtChange(event) {
-        this.setState({thoughtText: event.target.value});
+        const value = event.target.value;
+        this.setState({thoughtText: value});
+        localStorage.setItem('thought', value);
     }
 
     handleNewThought() {
