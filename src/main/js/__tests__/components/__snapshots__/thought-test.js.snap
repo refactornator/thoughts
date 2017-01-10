@@ -62,7 +62,7 @@ exports[`Thought renders a single thought 1`] = `
               "muiPrepared": true,
             }
           }>
-          3 days ago
+          4 days ago
         </span>
       </div>
       <button
