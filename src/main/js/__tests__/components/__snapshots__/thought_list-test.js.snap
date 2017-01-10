@@ -63,7 +63,7 @@ exports[`ThoughtList renders a list of thoughts correctly 1`] = `
                 "muiPrepared": true,
               }
             }>
-            4 days ago
+            a few seconds ago
           </span>
         </div>
         <button
