@@ -7,7 +7,7 @@ describe('ThoughtList', () => {
     it('renders a list of thoughts correctly', () => {
         const thoughts = [{
             text: "This is a thought.",
-            creationTime: "2017-01-05T20:19:27.927+0000",
+            creationTime: new Date().toISOString(),
             _links: {
                 self: {
                     href: 'http://example.com/page/2'

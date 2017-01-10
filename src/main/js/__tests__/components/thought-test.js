@@ -7,7 +7,7 @@ import Thought from '../../components/thought';
 describe('Thought', () => {
     const thought = {
         text: "This is a thought.",
-        creationTime: "2017-01-05T20:19:27.927+0000"
+        creationTime: new Date().toISOString()
     };
 
     it('renders a single thought', () => {
