@@ -14,5 +14,20 @@
 
     <script src="built/bundle.js"></script>
 
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+
+        var thoughts = [[${thoughts}]];
+        thoughts = thoughts.map(function(thought) {
+            thought._links = {};
+            thought._links.self = {};
+            thought._links.self.href = `${window.location.protocol}//${window.location.host}/api/thoughts/${thought.id}`;
+            return thought;
+        });
+        Thoughts.start(thoughts);
+
+    /*]]>*/
+    </script>
+
 </body>
 </html>

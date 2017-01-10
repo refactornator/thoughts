@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    entry: ['whatwg-fetch', './src/main/js/app.js'],
+    entry: ['whatwg-fetch', './src/main/js/start.js'],
     devtool: 'sourcemaps',
     cache: true,
     debug: true,

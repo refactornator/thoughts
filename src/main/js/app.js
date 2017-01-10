@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import client from './client';
 
 import ThoughtInput from './components/thought_input';
@@ -19,7 +18,8 @@ const muiTheme = getMuiTheme({
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {thoughts: []};
+
+        this.state = {thoughts: props.thoughts || []};
     }
 
     componentDidMount() {
@@ -63,9 +63,3 @@ export default class App extends React.Component {
         )
     }
 }
-
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-
-ReactDOM.render(<App />, document.getElementById('app'));
