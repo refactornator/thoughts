@@ -1,6 +1,7 @@
 package com.wlindner;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,8 @@ public class HomeController {
 
 	@RequestMapping(value = "/")
 	public String index(Model model) {
-		model.addAttribute("thoughts", this.repository.findAll());
+		Sort byCreationTimeDesc = new Sort(Sort.Direction.DESC, "creationTime");
+		model.addAttribute("thoughts", this.repository.findAll(byCreationTimeDesc));
 
 		return "index";
 	}

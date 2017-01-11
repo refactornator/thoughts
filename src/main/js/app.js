@@ -35,7 +35,7 @@ export default class App extends React.Component {
             })
         }).then(newThought => {
             this.setState({
-                thoughts: this.state.thoughts.concat([newThought])
+                thoughts: [newThought].concat(this.state.thoughts)
             });
         });
     }

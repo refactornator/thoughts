@@ -1,7 +1,9 @@
 package com.wlindner;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-public interface ThoughtRepository extends CrudRepository<Thought, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface ThoughtRepository extends JpaRepository<Thought, Long> {
+    public List<Thought> findAllByOrderByIdAsc();
 }

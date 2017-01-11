@@ -1,6 +1,6 @@
 const client = {
     getResource(resource, options = {}) {
-        let url = `/api/${resource}`;
+        let url = `/api/${resource}?sort=creationTime,desc`;
         return fetch(url, options)
             .then(raw => raw.json())
             .then(json => json._embedded[resource]);
