@@ -6,6 +6,7 @@ import ThoughtList from '../../components/thought_list';
 describe('ThoughtList', () => {
     it('renders a list of thoughts correctly', () => {
         const thoughts = [{
+            id: 2,
             text: "This is a thought.",
             creationTime: new Date().toISOString(),
             _links: {

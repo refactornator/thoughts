@@ -6,10 +6,10 @@ import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 export default class Thought extends React.Component {
     render() {
-        let sinceHappened = moment(this.props.thought.creationTime).fromNow();
-
+        const style = Object.assign({}, {marginTop: 10});
+        const sinceHappened = moment(this.props.thought.creationTime).fromNow();
         return (
-            <Card style={{marginTop: 10}}>
+            <Card style={style}>
                 <CardHeader subtitle={sinceHappened} style={{height: 20}}>
                     <IconButton className="delete-button" iconStyle={{color: 'rgba(0, 0, 0, 0.541176)', width: 20, height: 20}}>
                         <ActionDelete onClick={this.props.deleteThoughtHandler} />

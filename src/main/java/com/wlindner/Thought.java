@@ -19,6 +19,8 @@ public class Thought {
 
 	private String text;
 
+	private String category;
+
 	private Thought() {}
 
 	public Thought(String text) {

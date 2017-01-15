@@ -19,7 +19,10 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {thoughts: props.thoughts || []};
+        this.state = {
+            category: localStorage.getItem('category') || 'work',
+            thoughts: props.thoughts || []
+        };
     }
 
     componentDidMount() {
@@ -28,10 +31,12 @@ export default class App extends React.Component {
         });
     }
 
-    rememberThought(text) {
+    rememberThought(text, toggled) {
+        const category = toggled === false ? 'work' : 'life';
         client.newResource('thoughts', {
             body: JSON.stringify({
-                text
+                text,
+                category
             })
         }).then(newThought => {
             this.setState({
@@ -52,12 +57,20 @@ export default class App extends React.Component {
         });
     }
 
+    toggleCategory(toggled) {
+        const category = toggled === false ? 'work' : 'life';
+        this.setState({category});
+        localStorage.setItem('category', category);
+    }
+
     render() {
+        const {category} = this.state;
+        const toggled = category === 'life' ? true : false;
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div className="container">
-                    <ThoughtInput newThoughtHandler={this.rememberThought.bind(this)}/>
-                    <ThoughtList thoughts={this.state.thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>
+                    <ThoughtInput toggled={toggled} categoryToggleHandler={this.toggleCategory.bind(this)} newThoughtHandler={this.rememberThought.bind(this)}/>
+                    <ThoughtList category={category} thoughts={this.state.thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>
                 </div>
             </MuiThemeProvider>
         )
