@@ -6,11 +6,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 const styles = {
   label: {
     float: 'left',
-    marginRight: '10px',
-    marginTop: '1px',
+    marginLeft: 30,
+    marginRight: 10,
+    marginTop: 8,
     color: 'rgba(0, 0, 0, 0.870588)'
   },
   toggle: {
+    marginTop: 7,
     width: null,
     display: 'inline-block',
     marginBottom: 16,
