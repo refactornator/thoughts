@@ -5,7 +5,7 @@ import Thought from './thought';
 export default class ThoughtList extends React.Component {
     render() {
         return (
-            <div className="thoughts">
+            <ul className="thoughts">
                 {this.props.thoughts.map(({key, style, data}) => {
                     let deleteThoughtHandler = this.props.deleteThoughtHandler.bind(this, data._links.self.href);
                     return <Thought
@@ -15,7 +15,7 @@ export default class ThoughtList extends React.Component {
                         deleteThoughtHandler={deleteThoughtHandler}
                     />;
                 })}
-            </div>
+            </ul>
         )
     }
 }

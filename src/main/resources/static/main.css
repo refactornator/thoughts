@@ -7,7 +7,7 @@ html {
 body {
   height: 100%;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   margin: 0;
 }
 
@@ -31,6 +31,7 @@ textarea {
 }
 
 #app {
+    height: 100%;
     width: 100%;
     max-width: 587px;
     display: block;
@@ -51,12 +52,32 @@ textarea {
 }
 
 .thoughts {
+    position: absolute;
+    left: 0;
+    top: 151px;
+    bottom: 1px;
+    width: 100%;
     z-index: 2;
-    margin-top: 3px;
-    padding: 144px 6px 6px 6px;
+    // padding: 0 12px 6px 6px;
     overflow-x: hidden;
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
+}
+
+.thought-card {
+    display: block;
+    position: relative;
+    border: #E3F2FD 1px solid;
+    padding: 11px;
+    margin-bottom: 0;
+}
+
+.thought-card > p {
+    margin-bottom: 0;
+}
+
+.thought-card .relative-time {
+    color: rgba(0, 0, 0, 0.541176);
 }
 
 .remember-button {

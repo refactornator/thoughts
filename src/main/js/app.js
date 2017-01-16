@@ -32,7 +32,7 @@ export default class App extends React.Component {
         }).map(thought => ({
             key: thought.id.toString(),
             data: {...thought},
-            style: {opacity: 0, marginTop: -100, marginBottom: 0}
+            style: {opacity: 0}
         }));
     }
 
@@ -45,9 +45,7 @@ export default class App extends React.Component {
             key: thought.id.toString(),
             data: {...thought},
             style: {
-              opacity: spring(1),
-              marginTop: spring(10),
-              marginBottom: spring(0)
+              opacity: spring(1)
             }
           };
         });
@@ -55,17 +53,13 @@ export default class App extends React.Component {
 
     willEnter() {
         return {
-            opacity: 0,
-            marginTop: -100,
-            marginBottom: 0
+            opacity: 0
         };
     }
 
     willLeave() {
         return {
-            opacity: 0,
-            marginTop: 10,
-            marginBottom: spring(-100)
+            opacity: spring(0)
         };
     }
 

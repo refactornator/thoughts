@@ -9,16 +9,17 @@ export default class Thought extends React.Component {
         const sinceHappened = moment(this.props.thought.creationTime).fromNow();
         const style = Object.assign({}, this.props.style);
         return (
-            <Card className="thought-card" style={style}>
-                <CardHeader subtitle={sinceHappened} style={{height: 20}}>
+            <li className="thought-card" style={style}>
+                <h6 style={{height: 20}}>
+                    <span className="relative-time">{sinceHappened}</span>
                     <IconButton className="delete-button" iconStyle={{color: 'rgba(0, 0, 0, 0.541176)', width: 20, height: 20}}>
                         <ActionDelete onClick={this.props.deleteThoughtHandler} />
                     </IconButton>
-                </CardHeader>
-                <CardText>
+                </h6>
+                <p>
                     {this.props.thought.text}
-                </CardText>
-            </Card>
+                </p>
+            </li>
         )
     }
 }
