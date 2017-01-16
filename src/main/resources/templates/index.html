@@ -47,7 +47,7 @@
         thoughts = thoughts.map(function(thought) {
             thought._links = {};
             thought._links.self = {};
-            thought._links.self.href = `${window.location.protocol}//${window.location.host}/api/thoughts/${thought.id}`;
+            thought._links.self.href = `${window.location.protocol}//${window.location.host}/thoughts/${thought.id}`;
             return thought;
         });
         Thoughts.start(thoughts);
