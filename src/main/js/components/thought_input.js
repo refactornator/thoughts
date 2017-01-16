@@ -55,7 +55,7 @@ export default class ThoughtInput extends React.Component {
 
     render() {
         return (
-            <Card>
+            <Card className="thought-input" style={{zIndex: 100}}>
                 <CardText style={{padding: '9px 16px 0 16px'}}>
                     <textarea value={this.state.thoughtText} onChange={this.handleThoughtChange}/>
                     <label style={styles.label}>Work</label><Toggle

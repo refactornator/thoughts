@@ -1,19 +1,12 @@
 import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {deepOrange500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {TransitionMotion, spring, presets} from 'react-motion';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import client from './client';
 
 import ThoughtInput from './components/thought_input';
 import ThoughtList from './components/thought_list';
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
-});
 
 export default class App extends React.Component {
     constructor(props) {
@@ -29,6 +22,51 @@ export default class App extends React.Component {
         client.getResource('thoughts').then(thoughts => {
             this.setState({thoughts});
         });
+    }
+
+    getDefaultStyles() {
+        const {category} = this.state;
+
+        return this.state.thoughts.filter(thought => {
+            return thought.category === category;
+        }).map(thought => ({
+            key: thought.id.toString(),
+            data: {...thought},
+            style: {opacity: 0, marginTop: -100, marginBottom: 0}
+        }));
+    }
+
+    getStyles() {
+        const {thoughts, category} = this.state;
+        return thoughts.filter(thought => {
+            return thought.category === category;
+        }).map((thought, i) => {
+          return {
+            key: thought.id.toString(),
+            data: {...thought},
+            style: {
+              opacity: spring(1),
+              marginTop: spring(10),
+              marginBottom: spring(0)
+            }
+          };
+        });
+    }
+
+    willEnter() {
+        return {
+            opacity: 0,
+            marginTop: -100,
+            marginBottom: 0
+        };
+    }
+
+    willLeave() {
+        return {
+            opacity: 0,
+            marginTop: 10,
+            marginBottom: spring(-100)
+        };
     }
 
     rememberThought(text, toggled) {
@@ -67,10 +105,17 @@ export default class App extends React.Component {
         const {category} = this.state;
         const toggled = category === 'life' ? true : false;
         return (
-            <MuiThemeProvider muiTheme={muiTheme}>
+            <MuiThemeProvider>
                 <div className="container">
                     <ThoughtInput toggled={toggled} categoryToggleHandler={this.toggleCategory.bind(this)} newThoughtHandler={this.rememberThought.bind(this)}/>
-                    <ThoughtList category={category} thoughts={this.state.thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>
+
+                    <TransitionMotion
+                    defaultStyles={this.getDefaultStyles()}
+                    styles={this.getStyles()}
+                    willLeave={this.willLeave}
+                    willEnter={this.willEnter}>
+                        {thoughts => <ThoughtList thoughts={thoughts} deleteThoughtHandler={this.forgetThought.bind(this)}/>}
+                    </TransitionMotion>
                 </div>
             </MuiThemeProvider>
         )
