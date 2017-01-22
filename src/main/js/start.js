@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 global.Thoughts = {
-	start: (thoughts) => {
-		ReactDOM.render(<App thoughts={thoughts} />, document.getElementById('app'));
-	}
+    start: (thoughts) => {
+        ReactDOM.render(<App thoughts={thoughts} />, document.getElementById('app'));
+    }
 }

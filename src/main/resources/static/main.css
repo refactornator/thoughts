@@ -1,91 +1,93 @@
-html {
-  height: 100%;
+html,body {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  display: hidden;
 }
 
 body {
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-  margin: 0;
+  font-size: 1.8em;
+  line-height: 1.6;
+  font-family: Helvetica Neue, Helvetica, Arial;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-td, th {
-    border: 1px solid #999;
-    padding: 0.5rem;
-    text-align: left;
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
 }
 
 textarea {
-    width: 99%;
-    height: 60px;
-    resize: none;
-    margin-bottom: 4px;
-    border-radius: 2px;
-    border-color: #00B0FF;
+  width: 99%;
+  height: 60px;
+  resize: none;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  border-color: #00B0FF;
 }
 
 #app {
-    height: 100%;
-    width: 100%;
-    max-width: 587px;
-    display: block;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 587px;
+  display: block;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .container {
-    height: 100%;
-    padding: 0;
+  height: 100%;
+  padding: 0;
 }
 
 .thought-input {
-    position: fixed;
-    top: 0;
+  top: 0;
+  position: fixed;
 }
 
 .thoughts {
-    position: absolute;
-    left: 0;
-    top: 151px;
-    bottom: 1px;
-    width: 100%;
-    z-index: 2;
-    // padding: 0 12px 6px 6px;
-    overflow-x: hidden;
-    overflow-y: scroll; /* has to be scroll, not auto */
-    -webkit-overflow-scrolling: touch;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 144px;
+  z-index: 2;
+  overflow: scroll;
+  position: absolute;
+  height: calc(100% - 145px);
+  -webkit-overflow-scrolling: touch;
 }
 
 .thought-card {
-    display: block;
-    position: relative;
-    border: #E3F2FD 1px solid;
-    padding: 11px;
-    margin-bottom: 0;
+  display: block;
+  position: relative;
+  border: #E3F2FD 1px solid;
+  padding: 11px;
+  margin-bottom: 0;
 }
 
 .thought-card > p {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .thought-card .relative-time {
-    color: rgba(0, 0, 0, 0.541176);
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.541176);
 }
 
 .remember-button {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .delete-button {
-    position: absolute!important;
-    right: 0;
-    top: 0;
+  position: absolute !important;
+  right: 0;
+  top: 0;
 }
