@@ -29,6 +29,7 @@ task cfpush {
         }
 
         exec {
+            // cf login --sso
             commandLine "cf", "push", "thoughts", "-p", "build/libs/thoughts-0.0.1-SNAPSHOT.jar", "-b", "java_buildpack_offline"
         }
     }
