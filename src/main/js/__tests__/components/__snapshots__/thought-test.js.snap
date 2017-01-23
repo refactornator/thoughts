@@ -1,17 +1,11 @@
 exports[`Thought renders a single thought 1`] = `
 <li
-  className="thought-card"
-  style={Object {}}>
-  <h6
-    style={
-      Object {
-        "height": 20,
-      }
-    }>
-    <span
+  className="thought-card">
+  <h6>
+    <div
       className="relative-time">
       a few seconds ago
-    </span>
+    </div>
     <button
       className="delete-button"
       disabled={false}

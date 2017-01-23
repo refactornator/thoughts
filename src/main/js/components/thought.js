@@ -7,10 +7,9 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 export default class Thought extends React.Component {
   render() {
     const sinceHappened = moment(this.props.thought.creationTime).fromNow();
-    const style = Object.assign({}, this.props.style);
 
     return (
-        <li className="thought-card" style={style}>
+        <li className="thought-card">
             <h6>
                 <div className="relative-time">{sinceHappened}</div>
                 <IconButton className="delete-button" iconStyle={{

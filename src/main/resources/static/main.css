@@ -62,7 +62,39 @@ textarea {
   overflow: scroll;
   position: absolute;
   height: calc(100% - 145px);
+  transition: all 1000ms ease-in;
   -webkit-overflow-scrolling: touch;
+}
+
+.thoughts-appear {
+  opacity: 0.1;
+}
+
+.thoughts-appear.thoughts-appear-active {
+  opacity: 1;
+  transition: opacity 600ms ease-in;
+}
+
+.thoughts-enter {
+  opacity: 0.5;
+  transform: translateY(-150px);
+}
+
+.thoughts-enter.thoughts-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 600ms ease-in;
+}
+
+.thoughts-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.thoughts-leave.thoughts-leave-active {
+  opacity: 0.5;
+  transform: translateX(-1000px);
+  transition: all 400ms ease-in;
 }
 
 .thought-card {
