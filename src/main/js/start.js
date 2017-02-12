@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
+import ThoughtRepository from './repositories/thought_repository';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap
@@ -8,7 +9,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 global.Thoughts = {
-    start: (thoughts) => {
-        ReactDOM.render(<App thoughts={thoughts} />, document.getElementById('app'));
-    }
-}
+  start: thoughts => {
+    ReactDOM.render(
+      <App thoughts={thoughts} />,
+      document.getElementById('app')
+    );
+  }
+};
+
+global.thoughtRepository = new ThoughtRepository();

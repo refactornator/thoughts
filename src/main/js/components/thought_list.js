@@ -1,28 +1,27 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Thought from './thought';
 
+@observer
 export default class ThoughtList extends React.Component {
-    render() {
-        return (
-            <ul className="thoughts">
-                <ReactCSSTransitionGroup
-                  transitionName="thoughts"
-                  transitionAppear={true}
-                  transitionAppearTimeout={600}
-                  transitionEnterTimeout={600}
-                  transitionLeaveTimeout={400}>
-                    {this.props.thoughts.map(thought => {
-                        let deleteThoughtHandler = this.props.deleteThoughtHandler.bind(this, thought._links.self.href);
-                        return <Thought
-                            key={thought.id}
-                            thought={thought}
-                            deleteThoughtHandler={deleteThoughtHandler}
-                        />;
-                    })}
-                </ReactCSSTransitionGroup>
-            </ul>
-        )
-    }
+  render() {
+    const store = this.props.store;
+    return (
+      <ul className="thoughts">
+        <ReactCSSTransitionGroup
+          transitionName="thoughts"
+          transitionAppear={true}
+          transitionAppearTimeout={600}
+          transitionEnterTimeout={600}
+          transitionLeaveTimeout={400}
+        >
+          {store.thoughtsBySelectedCategory.map(thought => {
+            return <Thought key={thought.id} store={store} thought={thought} />;
+          })}
+        </ReactCSSTransitionGroup>
+      </ul>
+    );
+  }
 }
