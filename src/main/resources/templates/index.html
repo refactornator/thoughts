@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/skeleton.css" />
     <link rel="stylesheet" href="/main.css" />
 
+    <!-- Error Tracking -->
+    <script src="https://cdn.ravenjs.com/3.10.0/raven.min.js"></script>
+
     <!-- ICONS -->
 
     <!-- iPhone 6 Plus icon -->
@@ -42,6 +45,7 @@
 
     <script th:inline="javascript">
     /*<![CDATA[*/
+        Raven.config('https://91703d8d83604327b50323979a98c791@sentry.io/138171').install();
 
         var thoughts = [[${thoughts}]];
         thoughts = thoughts.map(function(thought) {
