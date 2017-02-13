@@ -45,7 +45,9 @@
 
     <script th:inline="javascript">
     /*<![CDATA[*/
-        Raven.config('https://91703d8d83604327b50323979a98c791@sentry.io/138171').install();
+        Raven.config('https://91703d8d83604327b50323979a98c791@sentry.io/138171', {
+          ignoreUrls: [/localhost/]
+        }).install();
 
         var thoughts = [[${thoughts}]];
         thoughts = thoughts.map(function(thought) {
