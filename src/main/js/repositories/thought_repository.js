@@ -1,8 +1,9 @@
 import { observable, computed } from 'mobx';
+import LocalStorage from '../utilities/local_storage';
 
 export default class ThoughtRepository {
   @observable thoughts = [];
-  @observable selectedCategory = localStorage.getItem('category') || 'work';
+  @observable selectedCategory = LocalStorage.getItem('category') || 'work';
 
   constructor() {
     fetch('/thoughts?sort=creationTime,desc')

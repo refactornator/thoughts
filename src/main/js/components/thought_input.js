@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import Toggle from 'material-ui/Toggle';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import LocalStorage from '../utilities/local_storage';
 
 const styles = {
   label: {
@@ -26,7 +27,7 @@ export default class ThoughtInput extends React.Component {
     super(props);
 
     this.state = {
-      thoughtText: localStorage.getItem('thought') || ''
+      thoughtText: LocalStorage.getItem('thought') || ''
     };
 
     this.handleThoughtChange = this.handleThoughtChange.bind(this);
@@ -35,7 +36,7 @@ export default class ThoughtInput extends React.Component {
   handleThoughtChange(event) {
     const value = event.target.value;
     this.setState({ thoughtText: value });
-    localStorage.setItem('thought', value);
+    LocalStorage.setItem('thought', value);
   }
 
   handleNewThought() {
@@ -43,7 +44,7 @@ export default class ThoughtInput extends React.Component {
     this.setState({
       thoughtText: ''
     });
-    localStorage.setItem('thought', '');
+    LocalStorage.setItem('thought', '');
   }
 
   handleToggleChange(event, toggled) {
