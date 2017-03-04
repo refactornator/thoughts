@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const context = path.resolve(__dirname, 'src');
 
 module.exports = {
   entry: ['whatwg-fetch', './src/main/js/start.js'],
@@ -19,7 +20,15 @@ module.exports = {
             options: {
               cacheDirectory: true,
               presets: ['es2015', 'react', 'stage-0'],
-              plugins: 'transform-decorators-legacy'
+              plugins: [
+                'transform-decorators-legacy',
+                [
+                  'react-css-modules',
+                  {
+                    context
+                  }
+                ]
+              ]
             }
           }
         ]
