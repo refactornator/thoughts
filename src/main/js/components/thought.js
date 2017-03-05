@@ -7,7 +7,7 @@ import { Card, CardHeader, CardText } from 'material-ui/Card';
 
 import { forgetThought } from '../actions';
 
-class Thought extends React.Component {
+export class Thought extends React.Component {
   render() {
     const { thought, forgetThought } = this.props;
     const sinceHappened = moment(thought.creationTime).fromNow();

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Thought from '../../components/thought';
+import { Thought } from '../../components/thought';
 
 describe('Thought', () => {
   const thought = {
@@ -14,7 +14,7 @@ describe('Thought', () => {
     const thoughtEl = renderer
       .create(
         <MuiThemeProvider>
-          <Thought thought={thought} deleteThoughtHandler={() => {}} />
+          <Thought thought={thought} forgetThought={() => {}} />
         </MuiThemeProvider>
       )
       .toJSON();
