@@ -1,5 +1,5 @@
 .gradle
-test-report.xml
+junit.xml
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 node_modules
