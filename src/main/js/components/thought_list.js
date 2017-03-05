@@ -1,13 +1,18 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import { requestThoughts } from '../actions';
 
 import Thought from './thought';
 
-@observer
-export default class ThoughtList extends React.Component {
+class ThoughtList extends React.Component {
+  componentDidMount() {
+    this.props.requestThoughts();
+  }
+
   render() {
-    const store = this.props.store;
+    const selectedCategory = this.props.category;
     return (
       <ul className="thoughts">
         <ReactCSSTransitionGroup
@@ -17,11 +22,17 @@ export default class ThoughtList extends React.Component {
           transitionEnterTimeout={600}
           transitionLeaveTimeout={400}
         >
-          {store.thoughtsBySelectedCategory.map(thought => {
-            return <Thought key={thought.id} store={store} thought={thought} />;
-          })}
+          {this.props.thoughts
+            .filter(thought => thought.category === selectedCategory)
+            .map(thought => {
+              return <Thought key={thought.id} thought={thought} />;
+            })}
         </ReactCSSTransitionGroup>
       </ul>
     );
   }
 }
+
+export default connect(({ thoughts, category }) => ({ thoughts, category }), {
+  requestThoughts
+})(ThoughtList);

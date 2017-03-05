@@ -1,18 +1,15 @@
 import React from 'react';
 import moment from 'moment';
-import { observer } from 'mobx-react';
+import { connect } from 'react-redux';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import IconButton from 'material-ui/IconButton';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 
-@observer
-export default class Thought extends React.Component {
-  forgetThought(id) {
-    const store = this.props.store;
-    store.delete(id);
-  }
+import { forgetThought } from '../actions';
+
+class Thought extends React.Component {
   render() {
-    const { thought } = this.props;
+    const { thought, forgetThought } = this.props;
     const sinceHappened = moment(thought.creationTime).fromNow();
 
     return (
@@ -27,7 +24,7 @@ export default class Thought extends React.Component {
               height: 20
             }}
           >
-            <ActionDelete onClick={this.forgetThought.bind(this, thought.id)} />
+            <ActionDelete onClick={forgetThought.bind(this, thought.id)} />
           </IconButton>
         </h6>
         <p>
@@ -37,3 +34,7 @@ export default class Thought extends React.Component {
     );
   }
 }
+
+export default connect(({}, props) => props, {
+  forgetThought
+})(Thought);

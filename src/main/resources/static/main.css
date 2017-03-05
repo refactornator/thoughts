@@ -59,11 +59,20 @@ textarea {
   bottom: 0;
   top: 144px;
   z-index: 2;
-  overflow: scroll;
   position: absolute;
   height: calc(100% - 145px);
   transition: all 1000ms ease-in;
   -webkit-overflow-scrolling: touch;
+}
+
+/* iPhone 6 and greater Portrait and Landscape */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 736px) 
+and (-webkit-min-device-pixel-ratio: 2) { 
+  .thoughts {
+    overflow: scroll;
+  }
 }
 
 .thoughts-appear {

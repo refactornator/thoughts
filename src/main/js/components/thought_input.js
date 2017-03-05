@@ -1,9 +1,11 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { connect } from 'react-redux';
 import Toggle from 'material-ui/Toggle';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import LocalStorage from '../utilities/local_storage';
+
+import { createThought, changeThought, changeCategory } from '../actions';
 
 const styles = {
   label: {
@@ -21,50 +23,32 @@ const styles = {
   }
 };
 
-@observer
-export default class ThoughtInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      thoughtText: LocalStorage.getItem('thought') || ''
-    };
-
-    this.handleThoughtChange = this.handleThoughtChange.bind(this);
-  }
-
-  handleThoughtChange(event) {
-    const value = event.target.value;
-    this.setState({ thoughtText: value });
-    LocalStorage.setItem('thought', value);
-  }
-
+class ThoughtInput extends React.Component {
   handleNewThought() {
-    this.props.store.create(this.state.thoughtText);
-    this.setState({
-      thoughtText: ''
+    this.props.createThought({
+      category: this.props.category,
+      text: this.props.thought
     });
-    LocalStorage.setItem('thought', '');
   }
 
   handleToggleChange(event, toggled) {
-    this.props.store.selectedCategory = toggled ? 'life' : 'work';
+    const newCategory = toggled ? 'life' : 'work';
+    this.props.changeCategory(newCategory);
   }
 
   render() {
-    const { store } = this.props;
-
+    const { category, thought, changeThought } = this.props;
     return (
       <Card className="thought-input" style={{ zIndex: 100 }}>
         <CardText style={{ padding: '9px 16px 0 16px' }}>
           <textarea
-            value={this.state.thoughtText}
-            onChange={this.handleThoughtChange}
+            value={thought}
+            onChange={event => changeThought(event.target.value)}
           />
           <label style={styles.label}>Work</label>
           <Toggle
             label="Life"
-            toggled={store.selectedCategory === 'work' ? false : true}
+            toggled={category === 'work' ? false : true}
             labelPosition="right"
             onToggle={this.handleToggleChange.bind(this)}
             style={styles.toggle}
@@ -82,3 +66,9 @@ export default class ThoughtInput extends React.Component {
     );
   }
 }
+
+export default connect(({ category, thought }) => ({ category, thought }), {
+  createThought,
+  changeThought,
+  changeCategory
+})(ThoughtInput);

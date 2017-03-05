@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import configureStore from './configureStore';
 import ThoughtInput from './components/thought_input';
 import ThoughtList from './components/thought_list';
 
@@ -11,8 +12,8 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div className="container">
-          <ThoughtInput store={global.thoughtRepository} />
-          <ThoughtList store={global.thoughtRepository} />
+          <ThoughtInput />
+          <ThoughtList />
         </div>
       </MuiThemeProvider>
     );
