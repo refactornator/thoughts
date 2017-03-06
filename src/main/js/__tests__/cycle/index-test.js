@@ -25,8 +25,6 @@ describe('Cycles', () => {
         }
       };
 
-      // Asserts that the sources, trigger the provided sinks,
-      // when executing the fetchReposByUser function
       assertSourcesSinks(
         {
           ACTION: { 'a|': actionSource },
@@ -34,6 +32,36 @@ describe('Cycles', () => {
         },
         {
           HTTP: { 'x|': httpSink }
+        },
+        fetchThoughts,
+        done
+      );
+    });
+
+    it('should emit ACTION given HTTP response', done => {
+      const actionSource = {
+        a: actions.requestThoughts()
+      };
+
+      const response = { body: { _embedded: { thoughts: [{ id: 1 }] } } };
+
+      const actionSink = {
+        a: actions.receiveThoughts(response.body)
+      };
+
+      const httpSource = {
+        select: () => ({
+          r: xs.of(response)
+        })
+      };
+
+      assertSourcesSinks(
+        {
+          ACTION: { 'a|': actionSource },
+          HTTP: { 'r|': httpSource }
+        },
+        {
+          ACTION: { 'a|': actionSink }
         },
         fetchThoughts,
         done
@@ -68,8 +96,6 @@ describe('Cycles', () => {
         }
       };
 
-      // Asserts that the sources, trigger the provided sinks,
-      // when executing the fetchReposByUser function
       assertSourcesSinks(
         {
           ACTION: { 'a|': actionSource },
@@ -77,6 +103,36 @@ describe('Cycles', () => {
         },
         {
           HTTP: { 'x|': httpSink }
+        },
+        createThought,
+        done
+      );
+    });
+
+    it('should emit ACTION given HTTP response', done => {
+      const actionSource = {
+        a: actions.createThought({})
+      };
+
+      const response = { body: { id: 1 } };
+
+      const actionSink = {
+        a: actions.successfullyCreatedThought(response.body)
+      };
+
+      const httpSource = {
+        select: () => ({
+          r: xs.of(response)
+        })
+      };
+
+      assertSourcesSinks(
+        {
+          ACTION: { 'a|': actionSource },
+          HTTP: { 'r|': httpSource }
+        },
+        {
+          ACTION: { 'a|': actionSink }
         },
         createThought,
         done
@@ -111,6 +167,38 @@ describe('Cycles', () => {
         },
         {
           HTTP: { 'x|': httpSink }
+        },
+        forgetThought,
+        done
+      );
+    });
+
+    it('should emit ACTION given HTTP response', done => {
+      const id = 1;
+
+      const actionSource = {
+        a: actions.forgetThought(id)
+      };
+
+      const response = {};
+
+      const actionSink = {
+        a: actions.forgotThought(id)
+      };
+
+      const httpSource = {
+        select: () => ({
+          r: xs.of(response)
+        })
+      };
+
+      assertSourcesSinks(
+        {
+          ACTION: { 'a|': actionSource },
+          HTTP: { 'r|': httpSource }
+        },
+        {
+          ACTION: { 'a|': actionSink }
         },
         forgetThought,
         done
