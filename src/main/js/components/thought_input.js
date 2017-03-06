@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Toggle from 'material-ui/Toggle';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import LocalStorage from '../utilities/local_storage';
 
 import { createThought, changeThought, changeCategory } from '../actions';
 
@@ -23,7 +22,7 @@ const styles = {
   }
 };
 
-class ThoughtInput extends React.Component {
+export class ThoughtInput extends React.Component {
   handleNewThought() {
     this.props.createThought({
       category: this.props.category,

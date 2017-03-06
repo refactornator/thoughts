@@ -9,11 +9,24 @@
     "@cycle/run" "*"
     superagent "3.4.1"
 
-"@cycle/run@*", "@cycle/run@^1.0.0":
+"@cycle/run@*", "@cycle/run@^1.0.0", "@cycle/run@^1.0.0-rc.9":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@cycle/run/-/run-1.0.0.tgz#67d3d9008f722a6e5c41bddd415abf5e615ce6f8"
   dependencies:
     xstream "10.x"
+
+"@cycle/time@^0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@cycle/time/-/time-0.7.3.tgz#d584f81fbb44f8a11aa2dfa095166be14508c3eb"
+  dependencies:
+    "@cycle/run" "^1.0.0-rc.9"
+    combine-errors "^3.0.3"
+    deep-equal "^1.0.1"
+    raf "^3.3.0"
+    setimmediate "^1.0.5"
+    sorted-immutable-list "^1.1.0"
+    variable-diff "^1.1.0"
+    xstream "*"
 
 abab@^1.0.3:
   version "1.0.3"
@@ -1206,6 +1219,13 @@ colors@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
 
+combine-errors@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/combine-errors/-/combine-errors-3.0.3.tgz#f4df6740083e5703a3181110c2b10551f003da86"
+  dependencies:
+    custom-error-instance "2.1.1"
+    lodash.uniqby "4.5.0"
+
 combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
@@ -1358,6 +1378,10 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   dependencies:
     cssom "0.3.x"
 
+custom-error-instance@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/custom-error-instance/-/custom-error-instance-2.1.1.tgz#3cf6391487a6629a6247eb0ca0ce00081b7e361a"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -1383,6 +1407,10 @@ debug@~2.2.0:
 decamelize@^1.0.0, decamelize@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+
+deep-equal@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
 
 deep-extend@~0.4.0:
   version "0.4.1"
@@ -2599,13 +2627,44 @@ lodash._basefor@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/lodash._basefor/-/lodash._basefor-3.0.3.tgz#7550b4e9218ef09fad24343b612021c79b4c20c2"
 
+lodash._baseiteratee@~4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseiteratee/-/lodash._baseiteratee-4.7.0.tgz#34a9b5543572727c3db2e78edae3c0e9e66bd102"
+  dependencies:
+    lodash._stringtopath "~4.8.0"
+
+lodash._basetostring@~4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/lodash._basetostring/-/lodash._basetostring-4.12.0.tgz#9327c9dc5158866b7fa4b9d42f4638e5766dd9df"
+
+lodash._baseuniq@~4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
+  dependencies:
+    lodash._createset "~4.0.0"
+    lodash._root "~3.0.0"
+
 lodash._bindcallback@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
 
+lodash._createset@~4.0.0:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
+
 lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
+
+lodash._root@~3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._root/-/lodash._root-3.0.1.tgz#fba1c4524c19ee9a5f8136b4609f017cf4ded692"
+
+lodash._stringtopath@~4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/lodash._stringtopath/-/lodash._stringtopath-4.8.0.tgz#941bcf0e64266e5fc1d66fed0a6959544c576824"
+  dependencies:
+    lodash._basetostring "~4.12.0"
 
 lodash.assign@^4.2.0:
   version "4.2.0"
@@ -2694,6 +2753,13 @@ lodash.some@^4.4.0:
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
+lodash.uniqby@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.uniqby/-/lodash.uniqby-4.5.0.tgz#a3a17bbf62eeb6240f491846e97c1c4e2a5e1e21"
+  dependencies:
+    lodash._baseiteratee "~4.7.0"
+    lodash._baseuniq "~4.6.0"
 
 lodash@^4.14.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1:
   version "4.17.4"
@@ -3279,7 +3345,7 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
-raf@^3.1.0:
+raf@^3.1.0, raf@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.3.0.tgz#93845eeffc773f8129039f677f80a36044eee2c3"
   dependencies:
@@ -3655,6 +3721,10 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
+sorted-immutable-list@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sorted-immutable-list/-/sorted-immutable-list-1.1.0.tgz#41a62c024bd755c4c57306e20eec92620dae5d97"
+
 source-list-map@~0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-0.1.8.tgz#c550b2ab5427f6b3f21f5afead88c4f5587b2106"
@@ -3942,6 +4012,13 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
+variable-diff@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/variable-diff/-/variable-diff-1.1.0.tgz#d2bd5c66db76c13879d96e6a306edc989df978da"
+  dependencies:
+    chalk "^1.1.1"
+    object-assign "^4.0.1"
+
 verror@1.3.6:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.3.6.tgz#cff5df12946d297d2baaefaa2689e25be01c005c"
@@ -4093,7 +4170,7 @@ xml@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
 
-xstream@10.x, xstream@^10.3.0:
+xstream@*, xstream@10.x, xstream@^10.3.0:
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/xstream/-/xstream-10.3.0.tgz#ce451d56fa7fcf06cd39c7514bc2939098a5c470"
   dependencies:

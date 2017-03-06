@@ -6,7 +6,7 @@ import { requestThoughts } from '../actions';
 
 import Thought from './thought';
 
-class ThoughtList extends React.Component {
+export class ThoughtList extends React.Component {
   componentDidMount() {
     this.props.requestThoughts();
   }

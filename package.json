@@ -43,6 +43,7 @@
     "watch": "webpack --watch -d"
   },
   "devDependencies": {
+    "@cycle/time": "^0.7.3",
     "babel-core": "6.22.1",
     "babel-jest": "18.0.0",
     "babel-loader": "6.2.10",
@@ -60,6 +61,7 @@
     "react-test-renderer": "15.4.2"
   },
   "jest": {
+    "setupTestFrameworkScriptFile":"./src/main/js/test-helpers/localStorageMock.js",
     "testResultsProcessor": "./node_modules/jest-junit"
   }
 }

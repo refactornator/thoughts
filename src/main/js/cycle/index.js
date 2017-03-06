@@ -14,14 +14,14 @@ export function fetchThoughts(sources) {
     category: 'thoughts'
   }));
 
-  const response$ = sources.HTTP.select('thoughts').flatten();
-
-  const action$ = xs
-    .combine(response$, thoughts$)
-    .map(arr => actions.receiveThoughts(arr[0].body));
+  const response$ = sources.HTTP
+    .select('thoughts')
+    .flatten()
+    .map(res => res.body)
+    .map(actions.receiveThoughts);
 
   return {
-    ACTION: action$,
+    ACTION: response$,
     HTTP: request$
   };
 }

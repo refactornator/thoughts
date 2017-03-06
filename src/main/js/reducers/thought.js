@@ -11,7 +11,7 @@ export default function category(
       LocalStorage.setItem('thought', action.payload);
       return action.payload;
     case ActionTypes.SUCCESSFULLY_CREATED_THOUGHT:
-      LocalStorage.setItem('thought', '');
+      LocalStorage.removeItem('thought');
       return '';
     default:
       return state;
