@@ -1,10 +1,9 @@
 package com.wlindner;
 
-import javax.persistence.*;
-
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -17,6 +16,7 @@ public class Thought {
 	@Column(name = "creation_time_utc")
 	private Date creationTime;
 
+	@Lob
 	private String text;
 
 	private String category;
