@@ -4,6 +4,8 @@ junit.xml
 !gradle/wrapper/gradle-wrapper.jar
 node_modules
 built
+classes/
+thoughts.*.db
 
 ### STS ###
 .apt_generated
