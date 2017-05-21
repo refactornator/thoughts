@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ThoughtList renders a list of thoughts correctly 1`] = `
 <ul
-  className="thoughts">
+  className="thoughts"
+>
   <span />
 </ul>
 `;
