@@ -1,6 +1,7 @@
 create table THOUGHT (
-    ID int not null AUTO_INCREMENT,
+    ID bigint not null auto_increment,
     CREATION_TIME_UTC timestamp not null,
-    TEXT blob,
-    CATEGORY varchar(20)
+    TEXT longtext,
+    CATEGORY varchar(20),
+    primary key (ID)
 );
