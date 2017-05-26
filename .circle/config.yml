@@ -1,16 +1,20 @@
 version: 2
 jobs:
   build:
-    node:
-      version: stable
-    environment:
-      PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-
-dependencies:
-  override:
-    - yarn
-  cache_directories:
-    - ~/.cache/yarn
+    working_directory: ~/thoughts
+    docker:
+      - image: circleci/node:latest-browsers
+      - image: mysql:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - .node_modules
+      - run: yarn test
 
 test:
   override:
