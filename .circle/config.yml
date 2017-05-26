@@ -1,9 +1,10 @@
 version: 2
-machine:
-  node:
-    version: stable
-  environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+jobs:
+  build:
+    node:
+      version: stable
+    environment:
+      PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
 dependencies:
   override:
