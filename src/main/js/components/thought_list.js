@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { List } from 'semantic-ui-react';
 
 import { requestThoughts } from '../actions';
 
@@ -14,7 +15,7 @@ export class ThoughtList extends React.Component {
   render() {
     const selectedCategory = this.props.category;
     return (
-      <ul className="thoughts">
+      <List className="thoughts" style={{margin: '0 auto'}}>
         <ReactCSSTransitionGroup
           transitionName="thoughts"
           transitionAppear={true}
@@ -28,7 +29,7 @@ export class ThoughtList extends React.Component {
               return <Thought key={thought.id} thought={thought} />;
             })}
         </ReactCSSTransitionGroup>
-      </ul>
+      </List>
     );
   }
 }

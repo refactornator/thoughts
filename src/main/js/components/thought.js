@@ -1,9 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import ActionDelete from 'material-ui/svg-icons/action/delete';
-import IconButton from 'material-ui/IconButton';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { List } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 import { forgetThought } from '../actions';
 
@@ -13,24 +12,17 @@ export class Thought extends React.Component {
     const sinceHappened = moment(thought.creationTime).fromNow();
 
     return (
-      <li className="thought-card">
-        <h6>
+      <List.Item className="thought-card">
+        <div>
           <div className="relative-time">{sinceHappened}</div>
-          <IconButton
-            className="delete-button"
-            iconStyle={{
-              color: 'rgba(0, 0, 0, 0.541176)',
-              width: 20,
-              height: 20
-            }}
-          >
-            <ActionDelete onClick={forgetThought.bind(this, thought.id)} />
-          </IconButton>
-        </h6>
+          <Button.Group basic>
+            <Button className="delete-button" icon="trash" onClick={forgetThought.bind(this, thought.id)} />
+          </Button.Group>
+        </div>
         <p>
           {thought.text}
         </p>
-      </li>
+      </List.Item>
     );
   }
 }

@@ -1,18 +1,42 @@
 const path = require('path');
 const context = path.resolve(__dirname, 'src');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['whatwg-fetch', './src/main/js/start.js'],
+  entry: ['whatwg-fetch', './src/main/js/start.js', './src/main/scss/main.scss'],
   devtool: 'sourcemaps',
   cache: true,
   output: {
-    path: __dirname,
-    filename: './src/main/resources/static/built/bundle.js'
+    filename: 'built/bundle.js',
+    path: path.resolve(__dirname, 'src/main/resources/static')
   },
   module: {
     rules: [
       {
-        test: path.join(__dirname, '.'),
+        test: /\.png$/,
+        loader: "url-loader",
+        query: { mimetype: "image/png" }
+      },
+      {
+        test: /.woff|.woff2|.svg|.eot|.ttf/,
+        loader: 'url-loader',
+        options: {
+          limit: 50000,
+          name: '/fonts/[hash].[ext]'
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader?importLoaders=1',
+        }),
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+      },
+      {
+        test: /\.js$/,
         exclude: /(node_modules)/,
         use: [
           {
@@ -21,18 +45,18 @@ module.exports = {
               cacheDirectory: true,
               presets: ['es2015', 'react', 'stage-0'],
               plugins: [
-                'transform-decorators-legacy',
-                [
-                  'react-css-modules',
-                  {
-                    context
-                  }
-                ]
+                ['react-css-modules', { context }]
               ]
             }
           }
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'built/bundle.css',
+      allChunks: true,
+    }),
+  ],
 };

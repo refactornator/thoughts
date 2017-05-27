@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Toggle from 'material-ui/Toggle';
-import { Card, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Radio } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import { createThought, changeThought, changeCategory } from '../actions';
 
@@ -30,7 +30,7 @@ export class ThoughtInput extends React.Component {
     });
   }
 
-  handleToggleChange(event, toggled) {
+  handleToggleChange(event, {checked: toggled}) {
     const newCategory = toggled ? 'life' : 'work';
     this.props.changeCategory(newCategory);
   }
@@ -38,29 +38,26 @@ export class ThoughtInput extends React.Component {
   render() {
     const { category, thought, changeThought } = this.props;
     return (
-      <Card className="thought-input" style={{ zIndex: 100 }}>
-        <CardText style={{ padding: '9px 16px 0 16px' }}>
+      <Card className="thought-input" style={{ zIndex: 100, top: 0, width: '100%', position: 'fixed' }}>
+        <Card.Content style={{ padding: '9px 16px 0 16px' }}>
           <textarea
             value={thought}
             onChange={event => changeThought(event.target.value)}
           />
           <label style={styles.label}>Work</label>
-          <Toggle
+          <Radio
+            toggle
             label="Life"
-            toggled={category === 'work' ? false : true}
-            labelPosition="right"
-            onToggle={this.handleToggleChange.bind(this)}
+            checked={category === 'work' ? false : true}
+            onChange={this.handleToggleChange.bind(this)}
             style={styles.toggle}
           />
           <div style={{ textAlign: 'right', float: 'right' }}>
-            <RaisedButton
-              className="remember-button"
-              primary={true}
-              label="Remember"
-              onClick={this.handleNewThought.bind(this)}
-            />
+            <Button primary className="remember-button" onClick={this.handleNewThought.bind(this)}>
+              Remember
+            </Button>
           </div>
-        </CardText>
+        </Card.Content>
       </Card>
     );
   }

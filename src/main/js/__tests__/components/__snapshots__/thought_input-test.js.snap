@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThoughtInput renders a textarea and button for saving a thought 1`] = `
+<div
+  className="ui card thought-input"
+  href={undefined}
+  onClick={[Function]}
+  style={
+    Object {
+      "position": "fixed",
+      "top": 0,
+      "width": "100%",
+      "zIndex": 100,
+    }
+  }
+>
+  <div
+    className="content"
+    style={
+      Object {
+        "padding": "9px 16px 0 16px",
+      }
+    }
+  >
+    <textarea
+      onChange={[Function]}
+      value=""
+    />
+    <label
+      style={
+        Object {
+          "color": "rgba(0, 0, 0, 0.870588)",
+          "float": "left",
+          "marginLeft": 30,
+          "marginRight": 10,
+          "marginTop": 8,
+        }
+      }
+    >
+      Work
+    </label>
+    <div
+      className="ui toggle checkbox"
+      onChange={[Function]}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "display": "inline-block",
+          "marginBottom": 16,
+          "marginTop": 7,
+          "width": null,
+        }
+      }
+    >
+      <input
+        checked={false}
+        className="hidden"
+        name={undefined}
+        readOnly={true}
+        tabIndex={0}
+        type="radio"
+        value={undefined}
+      />
+      <label>
+        Life
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "float": "right",
+          "textAlign": "right",
+        }
+      }
+    >
+      <button
+        className="ui primary button remember-button"
+        onClick={[Function]}
+        tabIndex={undefined}
+      >
+        Remember
+      </button>
+    </div>
+  </div>
+</div>
+`;

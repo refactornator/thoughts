@@ -1,9 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ThoughtList renders a list of thoughts correctly 1`] = `
-<ul
-  className="thoughts"
+<div
+  className="ui list thoughts"
+  role="list"
+  style={
+    Object {
+      "margin": "0 auto",
+    }
+  }
 >
   <span />
-</ul>
+</div>
 `;
